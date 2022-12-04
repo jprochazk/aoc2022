@@ -1,7 +1,7 @@
 use std::collections::BinaryHeap;
 
 fn main() {
-  let input = include_str!("day1.txt").trim();
+  let input = include_str!("input.txt").trim();
 
   let mut max_calories = BinaryHeap::new();
   for elf in input.split("\n\n") {

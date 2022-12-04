@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 fn main() {
-  let input = include_str!("day2.txt").trim();
+  let input = include_str!("input.txt").trim();
 
   let strategy = input
     .split('\n')
