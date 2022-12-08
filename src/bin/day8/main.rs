@@ -108,7 +108,7 @@ fn main() {
       scratch.clear();
     }
 
-    println!("Day 1 part 1 answer: {}", visible.len());
+    println!("Day 8 part 1 answer: {}", visible.len());
   }
 
   {
@@ -196,7 +196,7 @@ fn main() {
       }
     }
 
-    println!("Day 1 part 2 answer: {}", highest_score);
+    println!("Day 8 part 2 answer: {}", highest_score);
   }
 }
 

@@ -44,7 +44,7 @@ fn main() -> anyhow::Result<()> {
     sum += size;
   }
 
-  println!("Day 1 part 1 answer: {}", sum);
+  println!("Day 7 part 1 answer: {}", sum);
 
   let total = fs.size("/")?;
   let unused = 70_000_000 - total;
@@ -64,7 +64,7 @@ fn main() -> anyhow::Result<()> {
     }
   }
 
-  println!("Day 1 part 2 answer: {}", smallest);
+  println!("Day 7 part 2 answer: {}", smallest);
 
   Ok(())
 }

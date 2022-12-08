@@ -17,7 +17,7 @@ fn main() {
 
     total += score;
   }
-  println!("Day 1 part 1 answer: {}", total);
+  println!("Day 2 part 1 answer: {}", total);
 
   let mut total = 0;
   for (opponent, me) in strategy.iter() {
@@ -28,7 +28,7 @@ fn main() {
 
     total += score;
   }
-  println!("Day 1 part 2 answer: {}", total);
+  println!("Day 2 part 2 answer: {}", total);
 }
 
 #[derive(Clone, Copy)]

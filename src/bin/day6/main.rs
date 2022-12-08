@@ -4,7 +4,7 @@ fn main() {
   let n = 4;
   for (i, s) in Window::new(input, n).enumerate() {
     if has_only_unique_chars(s) {
-      println!("Day 1 part 1 answer: ({}) {}", s, i + n);
+      println!("Day 6 part 1 answer: ({}) {}", s, i + n);
       break;
     }
   }
@@ -12,7 +12,7 @@ fn main() {
   let n = 14;
   for (i, s) in Window::new(input, n).enumerate() {
     if has_only_unique_chars(s) {
-      println!("Day 1 part 2 answer: ({}) {}", s, i + n);
+      println!("Day 6 part 2 answer: ({}) {}", s, i + n);
       break;
     }
   }

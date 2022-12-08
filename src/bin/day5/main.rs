@@ -34,7 +34,7 @@ fn main() {
     for stack in cargo.stacks.iter() {
       result += stack[stack.len() - 1];
     }
-    println!("Day 1 part 1 answer: {}", result);
+    println!("Day 5 part 1 answer: {}", result);
   }
 
   {
@@ -47,7 +47,7 @@ fn main() {
     for stack in cargo.stacks.iter() {
       result += stack[stack.len() - 1];
     }
-    println!("Day 1 part 2 answer: {}", result);
+    println!("Day 5 part 2 answer: {}", result);
   }
 }
 
