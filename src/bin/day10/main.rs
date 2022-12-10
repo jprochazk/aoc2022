@@ -11,47 +11,61 @@ macro_rules! noop {
 fn main() {
   let input = include_str!("input.txt").trim();
 
-  let mut sum = 0;
-  let mut cpu = Cpu::new(|&State { clock, x }| {
-    if clock >= 20 && (clock - 20) % 40 == 0 {
-      sum += clock as i64 * x;
-    }
-  });
+  aoc::time(
+    || {
+      let mut sum = 0;
+      let mut cpu = Cpu::new(|&State { clock, x }| {
+        if clock >= 20 && (clock - 20) % 40 == 0 {
+          sum += clock as i64 * x;
+        }
+      });
 
-  for line in input.split('\n').map(str::trim) {
-    let op: Op = line.parse().unwrap();
-    cpu.exec(op);
-  }
+      for line in input.split('\n').map(str::trim) {
+        let op: Op = line.parse().unwrap();
+        cpu.exec(op);
+      }
 
-  println!("Day 10 part 1 answer: {}", sum);
+      sum
+    },
+    |sum| {
+      println!("Day 10 part 1 answer: {}", sum);
+    },
+  );
 
-  let width = 40;
-  let height = 6;
-  let mut crt = String::with_capacity(width * height);
+  let crt_width = 40;
+  let crt_height = 6;
+  aoc::time(
+    || {
+      let mut crt = String::with_capacity(crt_width * crt_height);
 
-  let mut cpu = Cpu::new(|&State { x, .. }| {
-    use std::fmt::Write;
-    let pixel = (crt.len() % width) as i64;
-    if x - 1 <= pixel && pixel <= x + 1 {
-      write!(&mut crt, "#").unwrap();
-    } else {
-      write!(&mut crt, ".").unwrap();
-    }
-  });
+      let mut cpu = Cpu::new(|&State { x, .. }| {
+        use std::fmt::Write;
+        let pixel = (crt.len() % crt_width) as i64;
+        if x - 1 <= pixel && pixel <= x + 1 {
+          write!(&mut crt, "#").unwrap();
+        } else {
+          write!(&mut crt, ".").unwrap();
+        }
+      });
 
-  for line in input.split('\n').map(str::trim) {
-    let op: Op = line.parse().unwrap();
-    cpu.exec(op);
-  }
+      for line in input.split('\n').map(str::trim) {
+        let op: Op = line.parse().unwrap();
+        cpu.exec(op);
+      }
 
-  println!(
-    "Day 10 part 2 answer: \n{}",
-    crt
-      .chars()
-      .chunks(width)
-      .into_iter()
-      .map(|mut c| c.join(""))
-      .join("\n")
+      crt
+    },
+    |crt| {
+      println!(
+        "Day 10 part 2 answer: \n{}",
+        crt
+          .chars()
+          .chunks(crt_width)
+          .into_iter()
+          .map(|mut c| c.join(""))
+          .join("\n")
+      );
+    },
   );
 }
 

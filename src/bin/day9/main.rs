@@ -16,31 +16,37 @@ fn main() {
   // LEFT  -X
   // RIGHT +X
 
-  {
-    let mut world = World::new(1);
+  aoc::time(
+    || {
+      let mut world = World::new(1);
 
-    for move_ in input.split('\n').map(|m| Move::from_str(m).unwrap()) {
-      world.simulate(move_);
-      //println!("STEP: {move_:?}");
-      //println!("{world}");
-    }
+      for move_ in input.split('\n').map(|m| Move::from_str(m).unwrap()) {
+        world.simulate(move_);
+      }
 
-    println!("{world}");
-    println!("Day 9 part 1 answer: {}", world.visited.len());
-  }
+      world
+    },
+    |world| {
+      println!("{world}");
+      println!("Day 9 part 1 answer: {}", world.visited.len());
+    },
+  );
 
-  {
-    let mut world = World::new(9);
+  aoc::time(
+    || {
+      let mut world = World::new(9);
 
-    for move_ in input.split('\n').map(|m| Move::from_str(m).unwrap()) {
-      world.simulate(move_);
-      //println!("STEP: {move_:?}");
-      //println!("{world}");
-    }
+      for move_ in input.split('\n').map(|m| Move::from_str(m).unwrap()) {
+        world.simulate(move_);
+      }
 
-    println!("{world}");
-    println!("Day 9 part 2 answer: {}", world.visited.len());
-  }
+      world
+    },
+    |world| {
+      println!("{world}");
+      println!("Day 9 part 2 answer: {}", world.visited.len());
+    },
+  );
 }
 
 #[derive(Default)]
