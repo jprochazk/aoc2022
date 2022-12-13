@@ -59,24 +59,23 @@ fn main() {
     || {
       let dividers = [parse("[[2]]").unwrap(), parse("[[6]]").unwrap()];
 
-      let mut packets = input
-        .split("\n\n")
-        .flat_map(|pair| {
-          let (a, b) = pair.split_once('\n').unwrap();
-          let (a, b) = (a.trim(), b.trim());
-          let (a, b) = (parse(a).unwrap(), parse(b).unwrap());
-          [a, b]
-        })
-        .chain(dividers.clone())
-        .collect::<Vec<_>>();
+      let mut pos = [1, 2];
 
-      packets.sort_unstable();
+      for packet in input.split("\n\n").flat_map(|pair| {
+        let (a, b) = pair.split_once('\n').unwrap();
+        let (a, b) = (a.trim(), b.trim());
+        let (a, b) = (parse(a).unwrap(), parse(b).unwrap());
+        [a, b]
+      }) {
+        if packet < dividers[0] {
+          pos[0] += 1;
+          pos[1] += 1;
+        } else if packet < dividers[1] {
+          pos[1] += 1;
+        }
+      }
 
-      packets
-        .iter()
-        .positions(|p| dividers.contains(p))
-        .map(|i| i + 1)
-        .product::<usize>()
+      pos[0] * pos[1]
     },
     |key| {
       println!("Day 13 part 2 answer: {}", key);
