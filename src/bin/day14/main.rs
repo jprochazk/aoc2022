@@ -18,7 +18,7 @@ fn main() {
       let n = simulate(&mut grid);
       (grid, n)
     },
-    |(grid, n)| {
+    |(_, n)| {
       // println!("{grid}");
       println!("Day 14 part 1 answer: {n}");
     },
@@ -30,7 +30,7 @@ fn main() {
       let n = simulate(&mut grid);
       (grid, n)
     },
-    |(grid, n)| {
+    |(_, n)| {
       // println!("{grid}");
       println!("Day 14 part 2 answer: {n}");
     },
