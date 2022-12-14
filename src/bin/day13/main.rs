@@ -7,7 +7,7 @@ use logos::Logos;
 use thiserror::Error;
 
 fn main() {
-  let input = include_str!("input.txt").trim();
+  let input = include_str!("aoc_2022_day13_large-3.txt").trim();
 
   aoc::time(
     || {
